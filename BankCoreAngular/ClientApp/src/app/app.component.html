@@ -1,0 +1,54 @@
+<!--<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-sm-3'>
+      <app-nav-menu></app-nav-menu>
+    </div>
+    <div class='col-sm-9 body-content'>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>-->
+
+<style>
+  angular-tag-cloud {
+    border: black dotted 1px;
+  }
+</style>
+
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-sm-12'>
+      <div class="header-container">
+        <div class="pull-left">
+          <span id="title-icon" class="glyphicon glyphicon-equalizer"></span>
+          <span id="title">KB Bank</span>
+        </div>
+
+        <div class="pull-right">
+          Welcome: <button class="btn-link">Philip</button>
+          <a href="#" class="btn btn-info btn-md">
+            <span class="glyphicon glyphicon-log-out"></span> Log out
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-sm-10'>
+      <app-nav-menu></app-nav-menu>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-sm-10 body-content'>
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-sm-2">
+      <angular-tag-cloud [data]="data"
+                         [width]="options.width"
+                         [height]="options.height"
+                         [overflow]="options.overflow">
+      </angular-tag-cloud>
+      <!--<img id="tag-cloud" src="../assets/Word Art.jpeg" />-->
+    </div>
+  </div>
+</div>
