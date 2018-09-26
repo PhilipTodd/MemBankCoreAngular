@@ -28,6 +28,17 @@ namespace MemBankCoreAngular.DAL.Repository
             return this._context.Tag.Where(tag => tag.ParentId == parentId).OrderByDescending(tag => tag.Text);
         }
 
+        public IEnumerable<TagCloudData> GetTagCloudData(int parentTypeId)
+        {
+            return this._context.Tag.Where(tag => tag.ParentTypeId == parentTypeId)
+                .GroupBy(tag => tag.Text)
+                .Select(t => new TagCloudData
+                {
+                    Weight = t.Count(),
+                    Text = t.Key,
+                });
+        }
+
         public Tag GetById(int id)
         {
             var item = _context.Tag.Find(id);

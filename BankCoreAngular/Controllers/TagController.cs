@@ -21,12 +21,6 @@ namespace MemBankCoreAngular.Controllers
         }
 
         //[HttpGet("[action]")]
-        //public IEnumerable<Tag> Index()
-        //{
-        //    return this._repository.GetAll();
-        //}
-
-        //[HttpGet("[action]")]
         //public IEnumerable<Tag> GetForParentType (int parentTypeId)
         //{
 
@@ -38,15 +32,26 @@ namespace MemBankCoreAngular.Controllers
             return this._repository.GetAll().ToList();
         }
 
-        [HttpGet("{id}", Name = "GetTagById")]
+        [HttpGet("{id}", Name = "GetById")]
         public ActionResult<Tag> GetById(int id)
         {
-            var item = this._repository.GetById(id);
-            if (item == null)
+            var data = this._repository.GetById(id);
+            if (data == null)
             {
                 return NotFound();
             }
-            return item;
+            return data;
+        }
+
+        [HttpGet("GetTagCloudData/{parentTypeId}")]
+        public ActionResult<List<TagCloudData>> GetTagCloudData(int parentTypeId)
+        {
+            var data = this._repository.GetTagCloudData(parentTypeId);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            return data.ToList();
         }
     }
 }

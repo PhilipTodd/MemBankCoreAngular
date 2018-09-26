@@ -8,15 +8,29 @@ import { RouterModule } from '@angular/router';
 import { TagCloudModule } from 'angular-tag-cloud-module';
 // end 3rd party
 
+// global
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
+import { TagService } from './Shared/tag.service';
+// end global
+
+// code
 import { CodeComponent } from './code/code.component';
+// end code
+
+// sql
 import { SqlComponent } from './sql/sql.component';
+// end sql
+
+// memory
 import { MemoryComponent } from './memory/memory.component';
+// end memory
+
+// contact
 import { ContactComponent } from './contact/contact.component';
-//import { CounterComponent } from './counter/counter.component';
-//import { FetchDataComponent } from './fetch-data/fetch-data.component';
+// end contact
+
 
 @NgModule({
   declarations: [
@@ -27,8 +41,6 @@ import { ContactComponent } from './contact/contact.component';
     SqlComponent,
     MemoryComponent,
     ContactComponent,
-    //CounterComponent,
-    //FetchDataComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -43,7 +55,7 @@ import { ContactComponent } from './contact/contact.component';
     ]),
     TagCloudModule
   ],
-  providers: [],
+  providers: [TagService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
